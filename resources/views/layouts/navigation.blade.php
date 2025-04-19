@@ -15,6 +15,33 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    
+                    <!-- Surveys Link -->
+                    <x-nav-link :href="route('surveys.index')" :active="request()->routeIs('surveys.*')">
+                        {{ __('Survei') }}
+                    </x-nav-link>
+                    
+                    <!-- Employment Data Link -->
+                    <x-nav-link :href="route('employment-data.index')" :active="request()->routeIs('employment-data.*')">
+                        {{ __('Data Pekerjaan') }}
+                    </x-nav-link>
+                    
+                    @if(Gate::allows('admin'))
+                        <!-- Alumni Link (Admin Only) -->
+                        <x-nav-link :href="route('alumni.index')" :active="request()->routeIs('alumni.index')">
+                            {{ __('Alumni') }}
+                        </x-nav-link>
+                        
+                        <!-- Responses Link (Admin Only) -->
+                        <x-nav-link :href="route('responses.index')" :active="request()->routeIs('responses.*')">
+                            {{ __('Hasil Survei') }}
+                        </x-nav-link>
+                        
+                        <!-- Clustering Link (Admin Only) -->
+                        <x-nav-link :href="route('clustering.analyze')" :active="request()->routeIs('clustering.*')">
+                            {{ __('Clustering') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -34,7 +61,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('alumni.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -70,6 +97,33 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            
+            <!-- Responsive Surveys Link -->
+            <x-responsive-nav-link :href="route('surveys.index')" :active="request()->routeIs('surveys.*')">
+                {{ __('Survei') }}
+            </x-responsive-nav-link>
+            
+            <!-- Responsive Employment Data Link -->
+            <x-responsive-nav-link :href="route('employment-data.index')" :active="request()->routeIs('employment-data.*')">
+                {{ __('Data Pekerjaan') }}
+            </x-responsive-nav-link>
+            
+            @if(Gate::allows('admin'))
+                <!-- Responsive Alumni Link (Admin Only) -->
+                <x-responsive-nav-link :href="route('alumni.index')" :active="request()->routeIs('alumni.index')">
+                    {{ __('Alumni') }}
+                </x-responsive-nav-link>
+                
+                <!-- Responsive Responses Link (Admin Only) -->
+                <x-responsive-nav-link :href="route('responses.index')" :active="request()->routeIs('responses.*')">
+                    {{ __('Hasil Survei') }}
+                </x-responsive-nav-link>
+                
+                <!-- Responsive Clustering Link (Admin Only) -->
+                <x-responsive-nav-link :href="route('clustering.analyze')" :active="request()->routeIs('clustering.*')">
+                    {{ __('Clustering') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
@@ -80,7 +134,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('alumni.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
